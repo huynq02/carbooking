@@ -1,0 +1,50 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Node
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+ENV/
+
+# VSCode
+.vscode/
+
+# Environment
+.env
+.env.*
+
+# Mac
+*.DS_Store
+
+# Windows
+*.exe
+*.dll
+*.bat
+*.cmd
+
+# Others
+.idea/
+*.swp
+*.swo
+*.bak
+*.orig
+*.old
+
+# Build
+/dist/
+/build/
+/out/
+*.egg-info/
