@@ -1,0 +1,185 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CarBooking API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/bookings": {
+            "get": {
+                "tags": [
+                    "Booking"
+                ],
+                "summary": "Lấy danh sách booking",
+                "operationId": "eb7c332e8ba161904a1c0071040f61a5",
+                "responses": {
+                    "200": {
+                        "description": "Danh sách booking"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Booking"
+                ],
+                "summary": "Tạo mới booking",
+                "operationId": "e33fa5a6507581f9b1e0d710a9a130d1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "user_id",
+                                    "pickup_location",
+                                    "dropoff_location",
+                                    "pickup_time"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "pickup_location": {
+                                        "type": "string",
+                                        "example": "Hà Nội"
+                                    },
+                                    "dropoff_location": {
+                                        "type": "string",
+                                        "example": "Hải Phòng"
+                                    },
+                                    "pickup_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2025-07-07 10:00:00"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Booking created"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/bookings/{id}": {
+            "get": {
+                "tags": [
+                    "Booking"
+                ],
+                "summary": "Xem chi tiết booking",
+                "operationId": "ccb98678c3ca3c9e74460dbddc427ab0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Chi tiết booking"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Booking"
+                ],
+                "summary": "Cập nhật booking",
+                "operationId": "fb300db4391c22f2232e2814d49641c7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "pickup_location": {
+                                        "type": "string",
+                                        "example": "Hà Nội"
+                                    },
+                                    "dropoff_location": {
+                                        "type": "string",
+                                        "example": "Hải Phòng"
+                                    },
+                                    "pickup_time": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "example": "2025-07-07 10:00:00"
+                                    },
+                                    "status": {
+                                        "type": "string",
+                                        "example": "pending"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Booking updated"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Booking"
+                ],
+                "summary": "Xóa booking",
+                "operationId": "9f51d8752d2471c30540b89c13e933df",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Booking deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Booking",
+            "description": "Booking"
+        }
+    ]
+}
