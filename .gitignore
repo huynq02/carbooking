@@ -23,8 +23,6 @@ ENV/
 .vscode/
 
 # Environment
-.env
-.env.*
 
 # Mac
 *.DS_Store
